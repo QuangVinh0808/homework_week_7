@@ -64,3 +64,17 @@ uint8_t multiply_gf4(uint8_t a, uint8_t b) {
 
     return result;
 }
+
+uint16_t multiply_gf8(uint16_t a, uint16_t b) {
+    solve_res8(a);
+
+    uint16_t result = 0;
+
+    for (int i = 0; i < 8; i++) {
+        if ((b & (1 << i)) != 0) { 
+            result ^= res_gf8[i];
+        }
+    }
+
+    return result;
+}
