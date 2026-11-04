@@ -55,3 +55,14 @@
 | `0xAE` | `0x03` | `0xE9` |
 | `0x83` | `0x57` | `0xC1` |
 | `0x1B` | `0x36` | `0xBC` |
+
+# Cách chạy chương trình
+
+## Nếu muốn dùng thử
+- Hãy chạy câu lệnh main.exe sau đó chọn trường cần tính rồi nhập 2 đa thức cần tính fx,gx ở dạng thập phân. Kết quả sẽ in ra ở dạng thập phân.
+- Đây là bài tập mô phỏng trong trường GF4 và GF8 nên đừng nhập con số khác ngoài 4 và 8 !!!
+
+## Nếu muốn check unit test
+- Các test case đã được tính như ở trên và đã chạy trong folder tests/
+- Để chạy thì chạy câu lệnh "tests/test.exe" để xem kết quả
+- Nếu không thêm test thì vào trong file test.cpp và thêm các trường hợp vào. Chạy biên dịch "g++ tests/test.cpp -o tests/test.exe" rồi xem kết quả

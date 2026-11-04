@@ -3,16 +3,38 @@
 #include "gf.h"
 
 int main() {
-    uint16_t fx = 0b00010011;
-    uint16_t gx = 0b00010001;
+    uint16_t fx;
+    uint16_t gx;
+    std::cout << "Ban muon nhan trong truong nao (4 or 8) : ";
+    int field;
+    do {
+        std::cin >> field;
+        if (field != 4 && field != 8) {
+            std::cout << "Chi nhan vao 4 hoac 8, hay nhap lai : ";
+        }
+    } while (field != 4 && field != 8);
+    std::cout << "Hay nhap vao da thuc fx o dang thap phan (0-255) : ";
+    do {
+        std::cin >> fx;
+        if (fx > 255) {
+            std::cout << "Da thuc nhap vao khong nam trong GF2^8, hay nhap lai : ";
+        }
+    } while (fx > 255);
+    std::cout << "Hay nhap vao da thuc gx o dang thap phan (0-255) : ";
+    do {
+        std::cin >> gx;
+        if (gx > 255) {
+            std::cout << "Da thuc nhap vao khong nam trong GF2^8, hay nhap lai : ";
+        }
+    } while (gx > 255);
 
-    uint8_t ans = 0;
-
-    solve_res8(gx);
-    for(int i = 0; i < 8; i++) {
-        if(fx & (1 << i)) ans ^= res_gf8[i];
+    uint16_t res;
+    if (field == 4) { 
+        res = multiply_gf4(fx, gx);
+        std::cout << "Result = " << res << '\n';
+    } else {
+        res = multiply_gf8(fx, gx);
+        std::cout << "Result = " << res << '\n';
     }
-    std::cout << std::bitset<8>(ans) << "\n";
-
     return 0;
 }
