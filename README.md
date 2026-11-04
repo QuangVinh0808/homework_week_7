@@ -65,4 +65,4 @@
 ## Nếu muốn check unit test
 - Các test case đã được tính như ở trên và đã chạy trong folder tests/
 - Để chạy thì chạy câu lệnh "tests/test.exe" để xem kết quả
-- Nếu không thêm test thì vào trong file test.cpp và thêm các trường hợp vào. Chạy biên dịch "g++ tests/test.cpp -o tests/test.exe" rồi xem kết quả
+- Nếu muốn thêm test thì vào trong file test.cpp và thêm các trường hợp vào. Chạy biên dịch "g++ tests/test.cpp -o tests/test.exe" rồi xem kết quả
