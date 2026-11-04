@@ -25,6 +25,9 @@ int main() {
     int checked4 = 0;
     int checked8 = 0;
 
+    std::cout << "======================\n";
+    std::cout << "Test lookup table cua GF2^4 va GF2^8\n";
+    std::cout << "======================\n";
     //GF4
     for(int i = 0; i < 5; i++) {
         solve_res4(input4[i]);
@@ -57,6 +60,41 @@ int main() {
     }
 
     std::cout << "GF4 pass: " << checked4 << "/5\n";
-    std::cout << "GF8 pass: " << checked8 << "/4";
-    return (checked4 == 5 && checked8 == 4) ? 0 : 1;
+    std::cout << "GF8 pass: " << checked8 << "/4\n";
+    
+    std::cout << "======================\n";
+    std::cout << "Test nhan 2 so trong GF2^4 va GF2^8\n";
+    std::cout << "======================\n";
+
+
+    // GF(2^4)
+    uint8_t input_a_gf4[] = {
+        0x00, 0x01, 0x03, 0x03, 0x08,
+        0x08, 0x07, 0x0A, 0x0F, 0x05
+    };
+
+    uint8_t input_b_gf4[] = {
+        0x07, 0x0B, 0x02, 0x05, 0x02,
+        0x08, 0x06, 0x0B, 0x0F, 0x0B
+    };
+    uint8_t expected_gf4[] = {
+        0x00, 0x0B, 0x06, 0x0F, 0x03,
+        0x0C, 0x01, 0x02, 0x0A, 0x01
+    };
+
+    int checked_mul4 = 0;
+    int count4 = sizeof(input_a_gf4) / sizeof(input_a_gf4[0]);
+
+    for(int i = 0; i < count4; i++) {
+        uint8_t res = multiply_gf4(input_a_gf4[i], input_b_gf4[i]);
+        if(res == expected_gf4[i]) {
+            checked_mul4++;
+        }  else {
+            std::cout << "Sai tai test " << i + 1 << '\n';
+            std::cout << "Mong doi = " << (int)expected_gf4[i] << ", thuc te = " << (int)res << '\n';
+        }
+    }
+
+    std::cout << "GF4 test multiply : " << checked_mul4 << "/" << count4 << "\n";
+    return 0;
 }

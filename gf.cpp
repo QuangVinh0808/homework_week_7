@@ -50,3 +50,17 @@ void solve_res8(uint16_t g_x) {
         temp = x_mutilply_gx_gf8(temp);
     }
 }
+
+uint8_t multiply_gf4(uint8_t a, uint8_t b) {
+    solve_res4(a);
+
+    uint8_t result = 0;
+
+    for (int i = 0; i < 4; i++) {
+        if ((b & (1 << i)) != 0) { // Phần tử b có hệ số 1 tại vị trí i (hesố nhị phân)
+            result ^= res_gf4[i];
+        }
+    }
+
+    return result;
+}

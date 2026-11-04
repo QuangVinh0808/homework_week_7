@@ -8,3 +8,6 @@ void solve_res4(uint8_t g_x);
 
 uint16_t x_mutilply_gx_gf8(uint8_t gx);
 void solve_res8(uint16_t g_x);
+
+uint8_t multiply_gf4(uint8_t a, uint8_t b);
+uint16_t multiply_gf8(uint16_t a, uint16_t b);
